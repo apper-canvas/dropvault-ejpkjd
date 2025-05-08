@@ -1,74 +1,20 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import getIcon from '../utils/iconUtils';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+
 export default function Sidebar() {
   const location = useLocation();
-  
-  // Get icons
-  const HomeIcon = getIcon('Home');
-  const FolderIcon = getIcon('Folder');
-  const SettingsIcon = getIcon('Settings');
-  const ShareIcon = getIcon('Share2');
-  const StarIcon = getIcon('Star');
-  const TrashIcon = getIcon('Trash');
-  
-import { motion } from 'framer-motion';
-    <aside className="w-64 hidden md:flex flex-col bg-white dark:bg-surface-800 border-r border-surface-200 dark:border-surface-700">
-      <div className="p-4 border-b border-surface-200 dark:border-surface-700">
-        <h1 className="text-xl font-bold text-primary">DropVault</h1>
-      </div>
-      
-      {/* Navigation Links */}
-      <nav className="flex-1 p-4">
-        <ul className="space-y-1">
-          <li>
-            <NavLink to="/" className={({ isActive }) => 
-              `flex items-center px-4 py-2.5 rounded-lg ${isActive ? 'bg-primary text-white' : 'hover:bg-surface-100 dark:hover:bg-surface-700'}`
-            }>
-              <HomeIcon className="w-5 h-5 mr-3" /> Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/myfiles" className={({ isActive }) => 
-              `flex items-center px-4 py-2.5 rounded-lg ${isActive ? 'bg-primary text-white' : 'hover:bg-surface-100 dark:hover:bg-surface-700'}`
-            }>
-              <FolderIcon className="w-5 h-5 mr-3" /> My Files
-            </NavLink>
-          </li>
-        </ul>
-        
-        <div className="mt-6 pt-6 border-t border-surface-200 dark:border-surface-700">
-          <h3 className="px-4 text-xs font-semibold text-surface-500 uppercase tracking-wider mb-2">Categories</h3>
-          <ul className="space-y-1">
-            <li>
-              <a href="#" className="flex items-center px-4 py-2 text-sm rounded-lg hover:bg-surface-100 dark:hover:bg-surface-700">
-                <StarIcon className="w-4 h-4 mr-3 text-amber-500" /> Favorites
-              </a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center px-4 py-2 text-sm rounded-lg hover:bg-surface-100 dark:hover:bg-surface-700">
-                <ShareIcon className="w-4 h-4 mr-3 text-green-500" /> Shared
-              </a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center px-4 py-2 text-sm rounded-lg hover:bg-surface-100 dark:hover:bg-surface-700">
-                <TrashIcon className="w-4 h-4 mr-3 text-red-500" /> Trash
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      
-      <div className="p-4 border-t border-surface-200 dark:border-surface-700">
-        <a href="#" className="flex items-center text-sm text-surface-600 dark:text-surface-400 hover:text-primary">
-          <SettingsIcon className="w-4 h-4 mr-2" /> Settings
-        </a>
   const [collapsed, setCollapsed] = useState(false);
   
+  // Get icons
+  const TrashIcon = getIcon('Trash');
+  
   // Define icons
+  const HomeIcon = getIcon('Home');
   const FolderIcon = getIcon('Folder');
+  const StarIcon = getIcon('Star');
   const ShareIcon = getIcon('Share2');
-  const TrashIcon = getIcon('Trash2');
   const SettingsIcon = getIcon('Settings');
   const ChevronLeftIcon = getIcon('ChevronLeft');
   const ChevronRightIcon = getIcon('ChevronRight');
