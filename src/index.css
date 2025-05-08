@@ -2,8 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'react-toastify/dist/ReactToastify.css';
+@layer base {
+  :root {
+    --primary: 234 90% 58%;
+    --primary-light: 231 94% 65%;
+    --primary-dark: 237 87% 48%;
+    --secondary: 280 85% 55%;
+    --secondary-light: 277 90% 62%;
+    --secondary-dark: 283 81% 48%;
+    --surface-50: 210 20% 98%;
+    --surface-100: 210 20% 95%;
+    --surface-200: 210 20% 90%;
+    --surface-300: 210 20% 85%;
+    --surface-400: 210 15% 65%;
+    --surface-500: 210 15% 50%;
+    --surface-600: 210 15% 35%;
+    --surface-700: 210 15% 25%;
+    --surface-800: 210 15% 15%;
+    --surface-900: 210 15% 10%;
+  }
+}
 
+@import 'react-toastify/dist/ReactToastify.css';
+  .card {
+    @apply bg-white dark:bg-surface-800 rounded-lg shadow-sm border border-surface-200 dark:border-surface-700 transition-all duration-200;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary hover:bg-primary-dark text-white focus:ring-primary;
+  }
+  
+  .btn-outline {
+    @apply btn border border-surface-300 dark:border-surface-600 hover:bg-surface-100 dark:hover:bg-surface-700 focus:ring-surface-400;
+  }
+  
+  .btn-ghost {
+    @apply btn hover:bg-surface-100 dark:hover:bg-surface-800 focus:ring-surface-400;
+  }
+  
+  /* Animation utilities */
+  .fade-in {
+    @apply animate-fadeIn;
+  }
+  
+  .slide-in-right {
+    @apply animate-slideInRight;
+  }
+  
+  /* Focus styles for accessibility */
+  .focus-visible {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+  }
 @layer base {
   html {
     @apply text-surface-700 dark:text-surface-200;

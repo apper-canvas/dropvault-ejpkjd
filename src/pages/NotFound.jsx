@@ -9,8 +9,8 @@ export default function NotFound() {
 
   return (
     <motion.div 
-      className="min-h-screen flex flex-col items-center justify-center p-4 text-center"
-      initial={{ opacity: 0 }}
+      className="h-full flex flex-col items-center justify-center p-4 text-center"
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
@@ -74,9 +74,9 @@ export default function NotFound() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-      >
-        <p className="text-sm">
-          Need help? <a href="#" className="text-primary hover:underline">Contact support</a>
+        <button className="text-sm text-primary hover:underline">
+          Go back to My Files
+        </button>
         </p>
       </motion.div>
     </motion.div>

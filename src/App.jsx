@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import getIcon from './utils/iconUtils';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -32,43 +33,50 @@ function App() {
   const SunIcon = getIcon('Sun');
 
   return (
-    <div className="relative min-h-screen">
-      {/* Dark Mode Toggle */}
-      <motion.button
-        whileTap={{ scale: 0.95 }}
-        onClick={toggleDarkMode}
-        className="fixed z-20 bottom-4 right-4 p-3 rounded-full bg-surface-200 dark:bg-surface-700 
-                  shadow-md dark:shadow-neu-dark hover:bg-surface-300 dark:hover:bg-surface-600 
-                  transition-colors duration-300"
-        aria-label="Toggle dark mode"
-      >
-        {isDarkMode ? 
-          <SunIcon className="w-5 h-5 text-yellow-400" /> : 
-          <MoonIcon className="w-5 h-5 text-surface-700" />
-        }
-      </motion.button>
+    <div className="flex h-screen bg-surface-50 dark:bg-surface-900 text-surface-700 dark:text-surface-200">
+      {/* Sidebar */}
+      <Sidebar />
 
-      <AnimatePresence mode="wait">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </AnimatePresence>
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* Top Bar */}
+        <header className="h-16 flex items-center justify-end px-4 border-b border-surface-200 dark:border-surface-700">
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full bg-surface-200 dark:bg-surface-700 
+                     hover:bg-surface-300 dark:hover:bg-surface-600 
+                     transition-colors duration-300"
+            aria-label="Toggle dark mode"
+          >
+            {isDarkMode ? 
+              <SunIcon className="w-5 h-5 text-yellow-400" /> : 
+              <MoonIcon className="w-5 h-5 text-surface-700" />
+            }
+          </button>
+        </header>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme={isDarkMode ? "dark" : "light"}
-        toastClassName="rounded-xl shadow-md"
-        className="mt-16 md:mt-20"
-      />
+        {/* Content Area */}
+        <main className="flex-1 overflow-auto p-4">
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AnimatePresence>
+        </main>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnHover
+          theme={isDarkMode ? "dark" : "light"}
+          toastClassName="rounded-xl shadow-md"
+        />
+      </div>
     </div>
   );
 }
