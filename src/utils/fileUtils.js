@@ -45,4 +45,3 @@ export function generateFileId() {
 export function formatFileDate(date) {
   return new Date(date).toLocaleDateString();
 }
-}
