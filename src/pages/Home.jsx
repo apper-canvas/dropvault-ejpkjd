@@ -1,7 +1,7 @@
-import FileManager from '../components/FileManager';
+import FileUploader from '../components/FileUploader';
 
 export default function Home() {
   return (
-    <FileManager />
+    <FileUploader />
   );
 }
