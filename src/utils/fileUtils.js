@@ -31,6 +31,7 @@ export function getFileIcon(fileType) {
   return FileIcon;
 
 
+/**
  * Generate a timestamp-based unique ID for a file
  * @returns {string} A unique ID
  */
