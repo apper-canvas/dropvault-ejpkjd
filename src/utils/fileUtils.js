@@ -30,7 +30,7 @@ export function getFileIcon(fileType) {
   if (fileType.includes('zip') || fileType.includes('archive') || fileType.includes('compressed')) return getIcon('Archive');
   return FileIcon;
 
-/**
+
  * Generate a timestamp-based unique ID for a file
  * @returns {string} A unique ID
  */
