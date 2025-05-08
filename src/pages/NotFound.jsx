@@ -74,7 +74,7 @@ export default function NotFound() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        <button className="text-sm text-primary hover:underline">
+        ><p><button className="text-sm text-primary hover:underline">
           Go back to My Files
         </button>
         </p>
