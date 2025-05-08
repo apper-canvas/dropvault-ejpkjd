@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import MyFiles from './pages/MyFiles';
 import getIcon from './utils/iconUtils';
 import Sidebar from './components/Sidebar';
 
@@ -61,6 +62,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/myfiles" element={<MyFiles />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AnimatePresence>

@@ -21,7 +21,28 @@ export function formatFileSize(bytes) {
 export function getFileIcon(fileType) {
   const FileIcon = getIcon('File');
   if (fileType.startsWith('image/')) return getIcon('Image');
+  if (fileType.includes('spreadsheet') || fileType.includes('excel')) return getIcon('FileSpreadsheet');
+  if (fileType.includes('presentation') || fileType.includes('powerpoint')) return getIcon('FilePresentation');
   if (fileType.startsWith('text/') || fileType.includes('document')) return getIcon('FileText');
+  if (fileType.includes('audio')) return getIcon('FileAudio');
+  if (fileType.includes('video')) return getIcon('FileVideo');
+  if (fileType.includes('pdf')) return getIcon('FilePdf');
   if (fileType.includes('zip') || fileType.includes('archive') || fileType.includes('compressed')) return getIcon('Archive');
   return FileIcon;
+
+/**
+ * Generate a timestamp-based unique ID for a file
+ * @returns {string} A unique ID
+ */
+export function generateFileId() {
+  return `file-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+}
+
+/**
+ * Get a human-readable date representation
+ * @param {Date} date - The date object to format
+ */
+export function formatFileDate(date) {
+  return new Date(date).toLocaleDateString();
+}
 }
